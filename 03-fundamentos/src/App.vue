@@ -1,19 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
+  <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
   <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  <Counter title="Entraron" :start="15" />
-  <Counter title="" :start="101" />
+  <!-- <Counter title="Entraron" :start="15" /> -->
+  <!-- <Counter title="" :start="101" /> -->
+  <Indecision />
 </template>
 
 <script>
 import Counter from "./components/Counter.vue";
+import Indecision from './components/Indecision.vue';
 // import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: "App",
   components: {
     // HelloWorld,
-    Counter,
+    // Counter,
+    Indecision,
   },
 };
 </script>
