@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VueJS Intro</title>
+  </head>
+  <body>
+    <!-- Vue, tiene control de este div, lo q este escrito afuera de este div
+    es puro html -->
+    <div id="myApp">
+      <h1>Batman's quotes <small>{{ newQuote }}</small></h1>
+      <!-- Vue tiene modificadores de eventos, asi que al keypress, le pongo que tecla es la q quiero considerar, y vue se encarga de que solo sea esa 
+      
+        Si queremos mandar el evento como parametro
+
+        v-on:keypress.enter="addQuote(1, "param2", $event)
+    
+    -->
+      <input type="text" v-model="newQuote" v-on:keypress.enter="addQuote" />
+      <hr />
+      <ul>
+        <li v-for="({ quote, author }, index) in quotes">
+          <span> {{ index + 1 }}- {{ quote }} </span>
+          <blockquote v-if="author">-{{ author }}</blockquote>
+          <!-- el v-show no es lazy, y en diferencia con el v-if es que el
+              v-show hace un display:none 
+              OJO! la documentacion de VUE no recomienda usar V-IF con V-FOR
+          -->
+          <blockquote v-show="author">-{{ author }}</blockquote>
+        </li>
+      </ul>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>

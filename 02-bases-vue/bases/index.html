@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VueJS Intro</title>
+  </head>
+  <body>
+    <!-- Vue, tiene control de este div, lo q este escrito afuera de este div
+    es puro html -->
+    <div id="myApp">
+      <h1>Hola Mundo</h1>
+      <p>Desde Index.html</p>
+      <p>{{ true ? 'v' : 'f' }}</p>
+      <p>{{ '1' + '1' }}</p>
+      <p>{{ message }}</p>
+      <p>{{ quote }}</p>
+      <blockquote>-{{ author }}</blockquote>
+      <!-- el event listener lo agrego con v-on:nombre evento 
+        es como el onclick de react, 
+        onClick={funcion} o onClick={(ev) => funcion(ev)}
+      -->
+      <button v-on:click="changeQuote">Change Quote</button>
+    </div>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="./app.js"></script>
+  </body>
+</html>
