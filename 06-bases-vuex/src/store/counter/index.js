@@ -1,4 +1,7 @@
-import getRandomInt from "@/helpers/getRandomInt";
+import state from "./state";
+import * as mutations from "./mutations";
+import * as actions from "./actions";
+import * as getters from "./getters";
 
 /**
  * ATENCION: Cuando se crea este modulo de la store
@@ -19,55 +22,25 @@ import getRandomInt from "@/helpers/getRandomInt";
  */
 
 const counterStore = {
+  // esto es para cuando pueden llegar a haber metodos de otros modulos
+  // de la store, que se llamen igual a otros metodos de otros modulos
   namespaced: true,
   // state es igual al data(){
   //  return {}
   // }
   // lo q hace que sea reactivo
-  state: () => ({
-    count: 1, //listo, con esto ya tengo una variable estado dentro de la store
-    lastMutation: "none",
-    isLoading: false,
-  }),
+  // state: state,
+  state,
   // las mutaciones las podemos ver como "metodos"
   // que estan adentro de mutations q ayudan para hacer
   // cambios del state
   // SON SINCRONAS! no podes poner async - await
-  mutations: {
-    // las mutations reciben como PRIMER PARAMETRO
-    // el state de la store, si quiero recibir otros
-    // tengo que pasarlos a partir de la segunda
-    // puedo recibir el state como parametro
-    increment(state) {
-      state.count++;
-      state.lastMutation = "increment";
-    },
-    incrementBy(state, value) {
-      state.count += value;
-      state.lastMutation = "incrementBy";
-    },
-    setLoading(state, value) {
-      state.isLoading = value;
-      state.lastMutation = "setLoading";
-    },
-  },
-  actions: {
-    // recordemos q una accion NO modifica directamente el state
-    // aca lo mismo, en lugar de recibir el state,
-    // se recibe el context de la store
-    async incrementRandomInt(context) {
-      context.commit("setLoading", true);
-      const randomInt = await getRandomInt();
-      context.commit("setLoading", false);
-
-      context.commit("incrementBy", randomInt);
-    },
-  },
-  getters: {
-    squareCount(state) {
-      return state.count * state.count;
-    },
-  },
+  // mutations: mutations,
+  mutations,
+  // actions: actions,
+  actions,
+  // getters: getters,
+  getters,
 };
 
 export default counterStore;

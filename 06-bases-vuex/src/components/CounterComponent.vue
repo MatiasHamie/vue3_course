@@ -16,7 +16,7 @@
   <!-- recordar que el :algo es un shorcut de v-bind:algo -->
   <button @click="incrementRandomInt" :disabled="isLoading">Random</button>
 
-  <h2>Direct getter: {{ $store.getters.squareCount  }}</h2>
+  <h2>Direct getter: {{ $store.getters["counter/squareCount"] }}</h2>
 </template>
 
 <script>
